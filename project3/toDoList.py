@@ -19,11 +19,17 @@ elif reponse == "remove":
             notes.remove(note)
             print(f'-{ note} --- {notes}')
 elif reponse == "view":
-    print(f'you want to view item {notes}')
+    for note in notes :
+        score += 1  
+        print(f' item number{ score } : {note} ')
 
+elif reponse == "exit" :
+    confirmCommand = input(" do you want to exit !! \n")
+    if confirmCommand == 'yes':
+        print(' ok N A K A M A')
+
+    
 else :
     print('------this command not found')
 
-# for command in commands :
-#   if command == reponse :
-#     print(f'your command is : {reponse} and the {command}')
+
