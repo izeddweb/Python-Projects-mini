@@ -1,3 +1,4 @@
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -23,10 +24,10 @@ for article in articles:
     book_info_list.append(book_info)
 
 # Define the file name where you want to save the output
-output_file = "output.txt"
+output_file = "output-Project-2.txt"
 
 # Write the extracted content to a text file
-with open(output_file, "wt") as file:
+with open(output_file, "w") as file:
     for book_info in book_info_list:
         file.write(book_info + "\n")
 
