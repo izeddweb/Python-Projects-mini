@@ -1,40 +1,46 @@
-
 commands = ["add", "view", "remove", "exit"]
-notes = ["zedd", "ab", "azer"]
-score = 0
+notes = ["zedd", "a"]
+score_Note = 0
 confirmCommand = ""
 
-while True :
-    reponse = input("do you want to add ,view , remove or exit \n")
+while True:
 
-    if reponse == "add":
-        score += 1
-        confirmCommand = input("item to add \n")
-        notes.append(f"{confirmCommand}-{score}")
+    user_command = input(" Choose a commands from (add ,view , remove ,exit) : ")
+    if user_command == "add":
+        confirmCommand = input("item to add : ")
+        notes.append(confirmCommand)
+        print(f" item added : ", notes)
+
+    elif user_command == "view":
+        if len(notes) == 0:
+            print("no item to view")
+        else:
+            print(notes)
+
+    elif user_command == "remove":
         print(notes)
-
-    elif reponse == "remove":
-        confirmCommand = input(" item to remove \n")
+        confirmCommand = input("item to remove! :")
         for note in notes:
-            if note == confirmCommand:
-                notes.remove(note)
-                print(f'-{ note} --- {notes}')
-            elif note != confirmCommand :
-                print('item not found')
-    elif reponse == "view":
-        for note in notes :
-            score += 1  
-            print(f' item number{ score } : {note} ')
+            if confirmCommand == note:
+                for note in notes:
+                    notes.remove(confirmCommand)
+                    print(f" item removed from you list {notes} ")
+                    break
+            else:
+                confirmDelete = input("this item not found you want to add ? ")
+                if confirmDelete == "yes":
+                    notes.append(confirmCommand)
+                    print(f" item added : ", notes)
+                    break
+                else:
+                    print("   it's a joke ")
+                    break
 
-    elif reponse == "exit" :
-        confirmCommand = input(" do you want to exit !! \n")
-        if confirmCommand == 'yes':
-            print(' OH NOOOO N A K A M A.  !!!!!!')
+    elif user_command == "exit":
+        confirmCommand = input("you want to exit !! : ")
+        if confirmCommand == "yes":
             break
-        else :
-            print(' ok N A K A M A')
-        
-    else :
-        print('------this command not found')
-
-
+        else:
+            print(" welcome back")
+    else:
+        print(" command not found!")
